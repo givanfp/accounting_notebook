@@ -1,0 +1,61 @@
+{% load static %}
+<html>
+<header>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Account</title>
+    <link href="{% static "myapp/css/bootstrap.min.css" %}" rel="stylesheet">
+    <style>
+    .container {
+      margin-top: 3rem;
+    }
+    </style>
+</header>
+<body>
+<main role="main">
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-6">
+
+            <h2>Account Balance: {{ balance }} </h2>
+
+              <div id="accordion">
+
+              {% for transaction in transactions %}
+                <div class="card {% if transaction.transaction_type == 'credit'%} alert-success {% else %} alert-danger {% endif %}">
+                  <div class="card-header" id="heading_{{ forloop.counter }}">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse_{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse_{{ forloop.counter }}">
+                        <span>${{ transaction.amount }} ({{ transaction.transaction_type}})</span>
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapse_{{ forloop.counter }}" class="collapse" aria-labelledby="heading_{{ forloop.counter }}" data-parent="#accordion">
+                    <div class="card-body">
+                      <p><strong>Transaction Id:</strong> {{ transaction.transaction_id }}<p/>
+                      <p><strong>Amount:</strong> {{ transaction.amount }}<p/>
+                      <p><strong>Type:</strong> {{ transaction.transaction_type }}<p/>
+                      <p><strong>Effective date:</strong> {{ transaction.effective_date }}<p/>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+          
+          
+          <div class="col-md-6">
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+    <script src="{% static "myapp/js/jquery-3.5.1.min.js" %}"></script>
+    <script src="{% static "myapp/js/bootstrap.bundle.min.js" %}"></script>
+
+</body>
