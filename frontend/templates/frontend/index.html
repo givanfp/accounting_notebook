@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<header>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Account</title>
+    <link href="{% static "myapp/css/bootstrap.min.css" %}" rel="stylesheet">
+    <style>
+    .container {
+      margin-top: 3rem;
+    }
+    </style>
+</header>
+<body>
+<main role="main">
+
+      <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-6">
+
+            <h2>Account </h2>
+          <div id="app"></div>
+          <div class="col-md-6">
+          </div>
+        </div>
+
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+    <script src="{% static "frontend/react-bootstrap.min.js" %}"></script>
+    <script src="{% static "frontend/main.js" %}"></script>
+</body>
