@@ -13,4 +13,10 @@ $ python manage.py runserver
 ```
 
 Then visit `http://localhost:8000` to view the app. 
+
 Browsable API in `http://localhost:8000/api/transactions/`
+
+To run unit tests:
+```
+$ python manage.py test myapp
+```
